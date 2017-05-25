@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -20,7 +21,7 @@
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 var nodeAssert = require('assert');
-var ourAssert = require('./');
+var ourAssert = require('assert/');
 var keys = Object.keys;
 if (process.env.TEST_NATIVE === true) {
   tests(nodeAssert, 'node assert');
@@ -287,8 +288,9 @@ function tests (assert, what) {
         try {
           assert.equal(actual, '');
         } catch (e) {
-          assert.equal(e.toString(),
-              ['AssertionError:', expected, '==', '\'\''].join(' '));
+// wilton: this check is not portable across engines                   
+//          assert.equal(e.toString(),
+//              ['AssertionError:', expected, '==', '\'\''].join(' '));
         }
       }
       testAssertionMessage(undefined, 'undefined');
@@ -343,3 +345,5 @@ function tests (assert, what) {
       }
     });
 }
+
+return module.exports;});

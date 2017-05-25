@@ -1,3 +1,4 @@
+define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
 'use strict';
 
 // compare and isBuffer taken from https://github.com/feross/buffer/blob/680e9e5e488f22aac27599a57dc844a6315928dd/index.js
@@ -488,3 +489,5 @@ var objectKeys = Object.keys || function (obj) {
   }
   return keys;
 };
+
+return module.exports;});
