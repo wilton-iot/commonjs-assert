@@ -1,4 +1,4 @@
-define(function(){var require = WILTON_requiresync;var module = {exports: {}};var exports = module.exports;
+define(function(localRequire, exports, module) { var requireOrig = require; require = localRequire;
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -22,7 +22,7 @@ define(function(){var require = WILTON_requiresync;var module = {exports: {}};va
 
 var test = require("tape-compat");
 var nodeAssert = require('assert');
-var ourAssert = require('assert/');
+var ourAssert = require('assert');
 var keys = Object.keys;
 if (process.env.TEST_NATIVE === true) {
   tests(nodeAssert, 'node assert');
@@ -347,4 +347,4 @@ function tests (assert, what) {
     });
 }
 
-return module.exports;});
+require = requireOrig;});
